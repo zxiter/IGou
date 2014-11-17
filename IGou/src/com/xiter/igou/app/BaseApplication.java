@@ -14,7 +14,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 
-import com.xiter.igou.util.Const;
+import com.xiter.igou.http.BaseHttpClient;
+import com.xiter.igou.util.Config;
 
 /**
  * Descriptionan：自管理Activity
@@ -115,10 +116,13 @@ public class BaseApplication extends Application {
 
 		// 初始化数据库管理器
 		// new DBManager(this);
+		// 初始化HttpClient,调用静态方法
+		BaseHttpClient.initHttpClient();
+
 	}
 
 	public SharedPreferences getPrefrence() {
-		SharedPreferences pre = getSharedPreferences(Const.PRE_CLIENT,
+		SharedPreferences pre = getSharedPreferences(Config.PRE_CLIENT,
 				Context.MODE_PRIVATE);
 		return pre;
 	}

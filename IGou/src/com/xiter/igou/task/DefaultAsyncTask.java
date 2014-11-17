@@ -5,6 +5,7 @@ package com.xiter.igou.task;
 
 import java.util.Map;
 
+import com.xiter.igou.http.BaseHttpClient;
 import com.xiter.igou.util.StringUtil;
 
 /**
@@ -31,7 +32,7 @@ public class DefaultAsyncTask extends BaseAsyncTask {
 	protected void doInBackground() {
 		String result = "";
 		try {
-			// result = HttpUtil.post(url, map);
+			result = BaseHttpClient.post(url, map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

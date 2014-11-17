@@ -11,7 +11,8 @@ package com.xiter.igou.util;
  * @version 1.0
  * 
  */
-public class Const {
+public class Config {
 
 	public final static String PRE_CLIENT = "";
+	public final static String STRURL = "http://192.168.2.102:8080/ZXJLPT/";
 }

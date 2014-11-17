@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.xiter.igou.ui.MainTabActivity;
+import com.xiter.igou.ui.LoginActivity;
 
 public class AppStart extends Activity implements AnimationListener {
 
@@ -38,7 +38,7 @@ public class AppStart extends Activity implements AnimationListener {
 
 	@Override
 	public void onAnimationEnd(Animation arg0) {
-		Intent intent = new Intent(this, MainTabActivity.class);
+		Intent intent = new Intent(this, LoginActivity.class);
 		startActivity(intent);
 		Toast.makeText(this, "the end", 3000);
 
