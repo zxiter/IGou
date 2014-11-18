@@ -3,9 +3,11 @@
  */
 package com.xiter.igou.ui.base;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import com.xiter.igou.app.BaseApplication;
 import com.xiter.igou.task.BaseAsyncTask.AsyncTaskListener;
 import com.xiter.igou.task.DefaultAsyncTask;
+import com.xiter.igou.widget.TopBar;
 
 /**
  * Description:TODO
@@ -32,7 +35,12 @@ public class BaseActivity extends Activity implements AsyncTaskListener {
 	/**
 	 * 请求的参数
 	 */
-	public Map<String, Object> params;
+	public Map<String, Object> params = new HashMap<String, Object>();
+
+	/**
+	 * 自定义bar
+	 */
+	public TopBar mTopBar;
 
 	/**
 	 * 查询界面存在的id
@@ -46,6 +54,20 @@ public class BaseActivity extends Activity implements AsyncTaskListener {
 	 */
 	public void initView() {
 
+	}
+
+	/**
+	 * 初始化自定义bar
+	 */
+	public void initBar() {
+
+	}
+
+	/**
+	 * 设置布局文件
+	 */
+	public int setLayout() {
+		return 0;
 	}
 
 	/**
@@ -105,6 +127,12 @@ public class BaseActivity extends Activity implements AsyncTaskListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		if (0 != setLayout()) {
+			setContentView(setLayout());
+		}
+		findById();
+		initView();
+		initBar();
 		getAppContext().addActivity(this);
 	}
 
@@ -122,6 +150,17 @@ public class BaseActivity extends Activity implements AsyncTaskListener {
 	 */
 	public BaseApplication getAppContext() {
 		return (BaseApplication) getApplication();
+	}
+
+	/**
+	 * 获取共享
+	 * 
+	 * @return
+	 */
+	public SharedPreferences getPrefrence() {
+
+		SharedPreferences pre = getAppContext().getPrefrence();
+		return pre;
 	}
 
 	/**

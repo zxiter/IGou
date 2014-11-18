@@ -18,7 +18,7 @@ import com.xiter.igou.http.BaseHttpClient;
 import com.xiter.igou.util.Config;
 
 /**
- * Descriptionan：自管理Activity
+ * Descriptionan：自管理Activity,获取版本号,初始化httpclient,SharedPreferences
  * 
  * @author liufeihua
  * @date 2014-11-17上午10:22:05
