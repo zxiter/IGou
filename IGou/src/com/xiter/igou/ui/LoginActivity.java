@@ -21,6 +21,14 @@ import com.xiter.igou.util.JSONUtil;
 import com.xiter.igou.util.MD5Util;
 import com.xiter.igou.widget.TopBar;
 
+/**
+ * Description:登录
+ * 
+ * @author liufeihua
+ * @date 2014-11-17下午2:18:35
+ * @version 1.0
+ * 
+ */
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	// 用户名

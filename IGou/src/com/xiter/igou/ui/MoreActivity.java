@@ -13,6 +13,14 @@ import com.xiter.igou.util.ListViewUtil;
 import com.xiter.igou.widget.CornerListView;
 import com.xiter.igou.widget.TopBar;
 
+/**
+ * Description:更多
+ * 
+ * @author liufeihua
+ * @date 2014-11-17下午2:18:35
+ * @version 1.0
+ * 
+ */
 public class MoreActivity extends BaseActivity {
 
 	private CornerListView mListView1;

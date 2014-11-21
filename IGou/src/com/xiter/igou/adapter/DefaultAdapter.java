@@ -21,8 +21,14 @@ import android.widget.BaseAdapter;
  */
 public abstract class DefaultAdapter<T> extends BaseAdapter {
 
+	/**
+	 * 传进来的数据
+	 */
 	private List<T> list;
 
+	/**
+	 * 上下文
+	 */
 	protected Context mContext;
 
 	public DefaultAdapter(Context context, List<T> list) {
@@ -30,24 +36,36 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 		this.list = list;
 	}
 
+	/**
+	 * 计算返回list的siez()
+	 */
 	@Override
 	public int getCount() {
 
 		return list == null ? 0 : list.size();
 	}
 
+	/**
+	 * 返回点击项的对象
+	 */
 	@Override
 	public Object getItem(int position) {
 
 		return list.get(position);
 	}
 
+	/**
+	 * 返回点击的id
+	 */
 	@Override
 	public long getItemId(int position) {
 
 		return position;
 	}
 
+	/**
+	 * 绘制view
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -55,6 +73,8 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 	}
 
 	/**
+	 * 让子类实现
+	 * 
 	 * @param position
 	 * @param convertView
 	 * @param parent
@@ -67,6 +87,9 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 		return list;
 	}
 
+	/**
+	 * 添加所有
+	 */
 	public void addAll(List<T> items) {
 		if (null == list) {
 			list = new ArrayList<T>();
@@ -75,13 +98,20 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 
 			notifyDataSetChanged();
 		}
+		// TODO
 	}
 
+	/**
+	 * 清空list
+	 */
 	public void clear() {
 		list.clear();
 		notifyDataSetChanged();
 	}
 
+	/**
+	 * 按位置移除
+	 */
 	public void remove(int position) {
 		list.remove(position);
 		notifyDataSetChanged();

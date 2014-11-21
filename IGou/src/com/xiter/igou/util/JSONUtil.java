@@ -4,7 +4,7 @@
 package com.xiter.igou.util;
 
 /**
- * Description:TODO
+ * Description:JSON 数据的常用方法的工具类。
  * @author liufeihua
  * @date 2014-11-19上午8:40:25
  * @version 1.0

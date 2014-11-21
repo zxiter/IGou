@@ -16,6 +16,14 @@ import android.widget.Toast;
 
 import com.xiter.igou.R;
 
+/**
+ * Description:主布局
+ * 
+ * @author liufeihua
+ * @date 2014-11-17下午2:18:35
+ * @version 1.0
+ * 
+ */
 public class MainTabActivity extends TabActivity implements OnClickListener {
 
 	private TabHost mTabHost;

@@ -1,13 +1,19 @@
 package com.xiter.igou.ui;
 
-import com.xiter.igou.R;
-import com.xiter.igou.R.layout;
-import com.xiter.igou.R.menu;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
+import com.xiter.igou.R;
+
+/**
+ * Description:主页
+ * 
+ * @author liufeihua
+ * @date 2014-11-17下午2:18:35
+ * @version 1.0
+ * 
+ */
 public class HomeActivity extends Activity {
 
 	@Override

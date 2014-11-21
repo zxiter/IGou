@@ -13,7 +13,7 @@ import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.util.EntityUtils;
 
 /**
- * Description:TODO
+ * Description:response实现
  * 
  * @author liufeihua
  * @date 2014-11-17下午2:45:49

@@ -20,5 +20,6 @@
     <string name="input_password">请输入密码</string>
     <string name="title_activity_amain">AMainActivity</string>
     <string name="title_activity_account">AccountActivity</string>
+    <string name="title_activity_good_detail">GoodDetailActivity</string>
 
 </resources>

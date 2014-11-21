@@ -54,8 +54,12 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.xiter.igou.ui.AccountActivity"
+            android:name="com.xiter.igou.ui.module.user.AccountActivity"
             android:label="@string/title_activity_account" >
+        </activity>
+        <activity
+            android:name="com.xiter.igou.ui.module.good.GoodDetailActivity"
+            android:label="@string/title_activity_good_detail" >
         </activity>
     </application>
 

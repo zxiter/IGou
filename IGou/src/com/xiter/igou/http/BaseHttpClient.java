@@ -32,7 +32,7 @@ import org.apache.http.protocol.HTTP;
 import com.xiter.igou.util.Config;
 
 /**
- * Description:TODO
+ * Description:请求的直接子类
  * 
  * @author liufeihua
  * @date 2014-11-17下午4:37:15

@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Description:TODO
+ * Description:MD5Util工具类
  * 
  * @author liufeihua
  * @date 2014-11-19上午9:07:10

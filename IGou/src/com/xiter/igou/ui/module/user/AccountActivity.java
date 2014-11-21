@@ -1,4 +1,4 @@
-package com.xiter.igou.ui;
+package com.xiter.igou.ui.module.user;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,11 +15,20 @@ import android.widget.SimpleAdapter;
 import com.google.gson.reflect.TypeToken;
 import com.xiter.igou.R;
 import com.xiter.igou.model.User;
+import com.xiter.igou.ui.LoginActivity;
 import com.xiter.igou.ui.base.BaseActivity;
 import com.xiter.igou.util.Config;
 import com.xiter.igou.util.JSONUtil;
 import com.xiter.igou.widget.TopBar;
 
+/**
+ * Description:账号
+ * 
+ * @author liufeihua
+ * @date 2014-11-17下午2:18:35
+ * @version 1.0
+ * 
+ */
 public class AccountActivity extends BaseActivity implements OnClickListener {
 
 	private ListView mListView;

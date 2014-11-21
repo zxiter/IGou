@@ -92,27 +92,29 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_account=0x7f030000;
-        public static final int activity_home=0x7f030001;
-        public static final int activity_login=0x7f030002;
-        public static final int activity_main=0x7f030003;
-        public static final int activity_main_tab=0x7f030004;
-        public static final int activity_more=0x7f030005;
-        public static final int activity_scan=0x7f030006;
-        public static final int appstart=0x7f030007;
-        public static final int tab_indicator=0x7f030008;
-        public static final int tab_indicator_camera=0x7f030009;
-        public static final int template_list_arrow=0x7f03000a;
-        public static final int topbar=0x7f03000b;
+        public static final int activity_good_detail=0x7f030001;
+        public static final int activity_home=0x7f030002;
+        public static final int activity_login=0x7f030003;
+        public static final int activity_main=0x7f030004;
+        public static final int activity_main_tab=0x7f030005;
+        public static final int activity_more=0x7f030006;
+        public static final int activity_scan=0x7f030007;
+        public static final int appstart=0x7f030008;
+        public static final int tab_indicator=0x7f030009;
+        public static final int tab_indicator_camera=0x7f03000a;
+        public static final int template_list_arrow=0x7f03000b;
+        public static final int topbar=0x7f03000c;
     }
     public static final class menu {
         public static final int account=0x7f090000;
         public static final int amain=0x7f090001;
-        public static final int home=0x7f090002;
-        public static final int login=0x7f090003;
-        public static final int main=0x7f090004;
-        public static final int main_tab=0x7f090005;
-        public static final int more=0x7f090006;
-        public static final int scan=0x7f090007;
+        public static final int good_detail=0x7f090002;
+        public static final int home=0x7f090003;
+        public static final int login=0x7f090004;
+        public static final int main=0x7f090005;
+        public static final int main_tab=0x7f090006;
+        public static final int more=0x7f090007;
+        public static final int scan=0x7f090008;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
@@ -128,6 +130,7 @@ public final class R {
         public static final int password=0x7f07000e;
         public static final int title_activity_account=0x7f070012;
         public static final int title_activity_amain=0x7f070011;
+        public static final int title_activity_good_detail=0x7f070013;
         public static final int title_activity_home=0x7f070004;
         public static final int title_activity_login=0x7f070007;
         public static final int title_activity_main_tab=0x7f070003;

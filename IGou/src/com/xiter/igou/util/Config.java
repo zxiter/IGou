@@ -4,7 +4,7 @@
 package com.xiter.igou.util;
 
 /**
- * Description:TODO
+ * Description:配置
  * 
  * @author liufeihua
  * @date 2014-11-17下午2:18:35

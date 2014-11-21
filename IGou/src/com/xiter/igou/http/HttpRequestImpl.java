@@ -12,7 +12,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.AbstractHttpClient;
 
 /**
- * Description:TODO
+ * Description:HttpRequestI实现
  * 
  * @author liufeihua
  * @date 2014-11-17下午3:03:58
