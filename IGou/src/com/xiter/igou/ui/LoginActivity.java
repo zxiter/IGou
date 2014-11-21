@@ -1,22 +1,37 @@
 package com.xiter.igou.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.xiter.igou.R;
+import com.xiter.igou.model.User;
 import com.xiter.igou.ui.base.BaseActivity;
+import com.xiter.igou.util.Config;
+import com.xiter.igou.util.JSONUtil;
+import com.xiter.igou.util.MD5Util;
 import com.xiter.igou.widget.TopBar;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
-	private EditText muserName;
-	private EditText mpassword;
+	// 用户名
+	private EditText mEtxtUserName;
+	// 密码
+	private EditText mEtxtPwd;
 
+	// 自定义标题栏
 	public TopBar mTopBar;
+
+	private List<User> users = new ArrayList<User>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,26 +39,28 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	}
 
+	// 设置布局
 	@Override
 	public int setLayout() {
 
 		return R.layout.activity_login;
 	}
 
+	// 初始化用户名和密码
 	@Override
 	public void findById() {
-		muserName = (EditText) findViewById(R.id.etxt_username);
-		mpassword = (EditText) findViewById(R.id.etxt_password);
+		mEtxtUserName = (EditText) findViewById(R.id.etxt_username);
+		mEtxtPwd = (EditText) findViewById(R.id.etxt_password);
 
 	}
 
+	// 初始化请求路径
 	@Override
 	public void initView() {
-		url = "base/syuser!doMobile_Login.gx";
-		setParams("admin", "1");
-		defaultTask();
+		url = Config.LOGIN;
 	}
 
+	// 自定义标题栏
 	@Override
 	public void initBar() {
 		mTopBar = (TopBar) findViewById(R.id.topbar_login);
@@ -55,37 +72,84 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		mTopBar.setRightButtonOnClickListener(this);
 	}
 
-	public void setParams(String userName, String password) {
-		params.put("username", userName);
-		params.put("password", password);
+	// 验正账号和密码,返回true则验证通过，否失败
+	public boolean validator(String userName, String password) {
+		if (TextUtils.isEmpty(userName)) {
+			toast("账号不能为空");
+			return false;
+		}
+		if (TextUtils.isEmpty(password)) {
+			toast("密码不能为空");
+			return false;
+		}
+		return true;
+	}
+
+	// 设置请求的参数
+	public void setParams() {
+		params.clear();
+		params.put("userName", getText(mEtxtUserName));
+		params.put("password", MD5Util.getMD5Str(getText(mEtxtPwd)));
 
 	}
 
+	// 处理返回结果
 	@Override
 	public void taskResult(boolean status, String info, Object data) {
-		log(status + "");
-		if (!"".equals(info)) {
-			toast("请求成功");
-			log(status + new Gson().toJson(data).toString());
+		if (status) {
+			String userJson = JSONUtil.toJson(data);
+			User user = new Gson().fromJson(userJson, User.class);
+			// User user = (User) data;
+			users.add(user);
+			String json = JSONUtil.toJson(users);
+			// 返回前先保存在share
+			saveSharedPreferences(Config.PRE_USER, json);
+
+			Intent intent = new Intent();
+			// 把数据返回给上一个页面
+			intent.putExtra(Config.PRE_USER, json);
+			setResult(RESULT_OK, intent);
+			finish();
 		}
+
 	}
 
-	public void onClickBtn(View view) {
-		url = "base/tRdSPMessage!doMobile_MessageGrid.gx";
-		map(1, 5);
-		defaultTask();
-	}
-
-	public void map(int pageIndex, int pageSize) {
-		params.clear();
-		params.put("msgType", "3");
-		params.put("page", pageIndex);
-		params.put("rows", pageSize);
-	}
-
+	// 初始化按钮
 	@Override
-	public void onClick(View arg0) {
-		toast("点击了登录了");
+	public void onClick(View v) {
+		if (v.getId() == mTopBar.getRightButton().getId()) {
+			if (validator(getText(mEtxtUserName), getText(mEtxtPwd))) {
+				if (isExUser(getText(mEtxtUserName))) {
+					toast("用户已存在");
+					return;
+				}
+				setParams();
+				defaultTask();
+			}
 
+		}
+
+	}
+
+	/**
+	 * 根据用户名判断是否存在在share 中,如果存在就返回true,则false
+	 * 
+	 * @param userName
+	 * @return
+	 */
+	public boolean isExUser(String userName) {
+		String json = loadStringSharedPreference(Config.PRE_USER, "");
+		List<User> user = JSONUtil.fromJson(json, new TypeToken<List<User>>() {
+		});
+
+		if (null != user) {
+			users = user;
+			for (User u : user) {
+				if (userName.equals(u.getUserName())) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

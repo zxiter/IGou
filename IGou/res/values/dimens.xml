@@ -1,8 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="page_paading">10dp</dimen>
     <dimen name="page_left_paading">10dp</dimen>
     <dimen name="page_login_top_margin">30dp</dimen>
@@ -12,5 +10,8 @@
     <dimen name="man_tab_font_size">10sp</dimen>
     <dimen name="main_list_goods_name_font_size">20sp</dimen>
     <dimen name="more_username_font_size">22sp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="list_min_heigh">48dp</dimen>
 
 </resources>

@@ -110,6 +110,7 @@ public abstract class BaseAsyncTask extends AsyncTask<Void, Void, Void> {
 			Map<String, Object> map = null;
 			try {
 				map = new Gson().fromJson(result, Map.class);
+				// map = JSONUtil.fromJson(result, Map.class);
 			} catch (Exception e) {
 			}
 			if (map != null) {
@@ -122,7 +123,7 @@ public abstract class BaseAsyncTask extends AsyncTask<Void, Void, Void> {
 					info = "解释map错误";
 				}
 				if (status) {
-					object = map.get("obj");
+					object = map.get("object");
 				}
 			}
 		}

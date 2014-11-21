@@ -35,7 +35,7 @@
         </activity>
         <activity
             android:name="com.xiter.igou.ui.MainTabActivity"
-            android:label="@string/title_activity_main_tab" >
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.xiter.igou.ui.HomeActivity"
@@ -43,7 +43,7 @@
         </activity>
         <activity
             android:name="com.xiter.igou.ui.MoreActivity"
-            android:label="@string/title_activity_more" >
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.xiter.igou.ui.ScanActivity"
@@ -51,7 +51,11 @@
         </activity>
         <activity
             android:name="com.xiter.igou.ui.LoginActivity"
-            android:label="@string/title_activity_login" >
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.xiter.igou.ui.AccountActivity"
+            android:label="@string/title_activity_account" >
         </activity>
     </application>
 
