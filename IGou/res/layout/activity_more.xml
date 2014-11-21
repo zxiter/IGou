@@ -58,22 +58,22 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <ListView
+            <com.xiter.igou.widget.CornerListView
                 android:id="@+id/lv_appmanage"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ll_userinfo"
                 android:layout_margin="@dimen/page_paading"
-                android:background="#ffffff"
+                android:background="@drawable/corner_bg"
                 android:cacheColorHint="#00000000" />
 
-            <ListView
+            <com.xiter.igou.widget.CornerListView
                 android:id="@+id/lv_other"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lv_appmanage"
                 android:layout_margin="@dimen/page_paading"
-                android:background="#ffffff"
+                android:background="@drawable/corner_bg"
                 android:cacheColorHint="#00000000" />
         </RelativeLayout>
     </ScrollView>

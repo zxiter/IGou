@@ -15,6 +15,10 @@ public final class R {
     }
     public static final class color {
         public static final int bg_normal=0x7f050000;
+        public static final int item_border_color=0x7f050003;
+        public static final int item_gradient_end_color=0x7f050002;
+        public static final int item_gradient_start_color=0x7f050001;
+        public static final int item_press_color=0x7f050004;
     }
     public static final class dimen {
         /** 
@@ -46,21 +50,26 @@ public final class R {
         public static final int btn_top_left_press=0x7f020007;
         public static final int btn_top_rigth_n=0x7f020008;
         public static final int btn_top_rigth_press=0x7f020009;
-        public static final int editview_bg=0x7f02000a;
-        public static final int head=0x7f02000b;
-        public static final int ic_launcher=0x7f02000c;
-        public static final int icon_top_right_selector=0x7f02000d;
-        public static final int main_tab_camera=0x7f02000e;
-        public static final int main_tab_camera_s=0x7f02000f;
-        public static final int main_tab_home=0x7f020010;
-        public static final int main_tab_home_s=0x7f020011;
-        public static final int main_tab_more=0x7f020012;
-        public static final int main_tab_more_s=0x7f020013;
-        public static final int maintab_toolbar_bg=0x7f020014;
-        public static final int selector_main_tab_camera=0x7f020015;
-        public static final int selector_main_tab_home=0x7f020016;
-        public static final int selector_main_tab_more=0x7f020017;
-        public static final int topbar=0x7f020018;
+        public static final int corner_all=0x7f02000a;
+        public static final int corner_bg=0x7f02000b;
+        public static final int corner_bottom=0x7f02000c;
+        public static final int corner_middle=0x7f02000d;
+        public static final int corner_top=0x7f02000e;
+        public static final int editview_bg=0x7f02000f;
+        public static final int head=0x7f020010;
+        public static final int ic_launcher=0x7f020011;
+        public static final int icon_top_right_selector=0x7f020012;
+        public static final int main_tab_camera=0x7f020013;
+        public static final int main_tab_camera_s=0x7f020014;
+        public static final int main_tab_home=0x7f020015;
+        public static final int main_tab_home_s=0x7f020016;
+        public static final int main_tab_more=0x7f020017;
+        public static final int main_tab_more_s=0x7f020018;
+        public static final int maintab_toolbar_bg=0x7f020019;
+        public static final int selector_main_tab_camera=0x7f02001a;
+        public static final int selector_main_tab_home=0x7f02001b;
+        public static final int selector_main_tab_more=0x7f02001c;
+        public static final int topbar=0x7f02001d;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0010;

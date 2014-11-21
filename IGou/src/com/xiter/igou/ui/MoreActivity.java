@@ -4,19 +4,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.xiter.igou.R;
 import com.xiter.igou.ui.base.BaseActivity;
 import com.xiter.igou.util.DataUtil;
 import com.xiter.igou.util.ListViewUtil;
+import com.xiter.igou.widget.CornerListView;
 import com.xiter.igou.widget.TopBar;
 
 public class MoreActivity extends BaseActivity {
 
-	private ListView mListView1;
-	private ListView mListView2;
+	private CornerListView mListView1;
+	private CornerListView mListView2;
 
 	private SimpleAdapter mAdapter1;
 	private SimpleAdapter mAdapter2;
@@ -34,8 +34,8 @@ public class MoreActivity extends BaseActivity {
 
 	@Override
 	public void findById() {
-		mListView1 = findListViewById(R.id.lv_appmanage);
-		mListView2 = findListViewById(R.id.lv_other);
+		mListView1 = (CornerListView) findViewById(R.id.lv_appmanage);
+		mListView2 = (CornerListView) findViewById(R.id.lv_other);
 
 		mAdapter1 = new SimpleAdapter(this, DataUtil.getData(),
 				R.layout.template_list_arrow, new String[] { "name" },
@@ -48,7 +48,7 @@ public class MoreActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		mListView1.setAdapter(mAdapter1);
-		mListView2.setAdapter(mAdapter1);
+		mListView2.setAdapter(mAdapter2);
 		mListView1.setOnItemClickListener(new ListViewOnClick1());
 		mListView2.setOnItemClickListener(new ListViewOnClick2());
 		ListViewUtil.setListViewHeightBasedOnChildren(mListView1);

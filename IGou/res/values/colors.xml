@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="bg_normal">#E7E7E7</color>
+    <color name="item_gradient_start_color">#E7E7E7</color>
+    <color name="item_gradient_end_color">#E7E7E7</color>
+    <color name="item_border_color">#E7E7E7</color>
+    <color name="item_press_color">#056EEC</color>
+
 </resources>
