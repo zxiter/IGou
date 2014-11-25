@@ -8,7 +8,10 @@ import java.util.List;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.xiter.igou.R;
 import com.xiter.igou.model.Goods;
 
 /**
@@ -33,7 +36,37 @@ public class GoodsAdapter extends DefaultAdapter<Goods> {
 	@Override
 	public View createView(int position, View convertView, ViewGroup parent) {
 
-		return null;
+		ViewHolder holder;
+
+		if (null == convertView) {
+			convertView = mInflater.inflate(R.layout.tempelet_goods_list, null);
+
+			holder = new ViewHolder();
+			holder.img_photo = (ImageView) convertView
+					.findViewById(R.id.imgv_goods_photo);
+			holder.txt_title = (TextView) convertView
+					.findViewById(R.id.txt_goods_title);
+			holder.txt_desc = (TextView) convertView
+					.findViewById(R.id.txt_goods_desc);
+
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
+		}
+
+		Goods g = getData(position);
+		holder.txt_title.setText(g.getName());
+		holder.txt_desc.setText(g.getDescribes());
+		return convertView;
+	}
+
+	static class ViewHolder {
+
+		ImageView img_photo;
+
+		TextView txt_title;
+
+		TextView txt_desc;
 	}
 
 }

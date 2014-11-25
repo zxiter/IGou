@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -31,9 +32,17 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 	 */
 	protected Context mContext;
 
+	/**
+	 * 
+	 * 
+	 */
+	protected LayoutInflater mInflater;
+
 	public DefaultAdapter(Context context, List<T> list) {
 		this.mContext = context;
 		this.list = list;
+
+		mInflater = LayoutInflater.from(context);
 	}
 
 	/**
@@ -94,10 +103,10 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 		if (null == list) {
 			list = new ArrayList<T>();
 
-			list.addAll(items);
-
-			notifyDataSetChanged();
 		}
+		list.addAll(items);
+
+		notifyDataSetChanged();
 		// TODO
 	}
 
@@ -115,5 +124,13 @@ public abstract class DefaultAdapter<T> extends BaseAdapter {
 	public void remove(int position) {
 		list.remove(position);
 		notifyDataSetChanged();
+	}
+
+	public List<T> getDatas() {
+		return list;
+	}
+
+	public T getData(int position) {
+		return list.get(position);
 	}
 }

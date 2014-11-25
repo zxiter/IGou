@@ -28,7 +28,7 @@ import com.xiter.igou.task.DefaultAsyncTask;
 import com.xiter.igou.widget.TopBar;
 
 /**
- * Description:TODO
+ * Description:基础activity,提供一般工具
  * 
  * @author liufeihua
  * @date 2014-11-17上午11:58:54

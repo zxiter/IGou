@@ -1,10 +1,19 @@
 package com.xiter.igou.ui;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
+import java.util.List;
 
+import android.os.Bundle;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.xiter.igou.R;
+import com.xiter.igou.adapter.DefaultAdapter;
+import com.xiter.igou.adapter.GoodsAdapter;
+import com.xiter.igou.model.Goods;
+import com.xiter.igou.ui.base.BaseListActivity;
+import com.xiter.igou.util.Config;
+import com.xiter.igou.util.DateUtil;
+import com.xiter.igou.util.JSONUtil;
 
 /**
  * Description:主页
@@ -14,19 +23,88 @@ import com.xiter.igou.R;
  * @version 1.0
  * 
  */
-public class HomeActivity extends Activity {
+public class HomeActivity extends BaseListActivity {
+
+	// private ListView mListView;
+
+	private DefaultAdapter<Goods> mAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home);
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.home, menu);
-		return true;
+	public int setLayout() {
+
+		return R.layout.activity_home;
+	}
+
+	@Override
+	public void initListView() {
+		url = Config.FIND_GOODS;
+	}
+
+	@Override
+	public void taskResult(boolean status, String info, Object data) {
+
+		if (status) {
+
+			if (data != null) {
+				ui(data);
+			} else {
+				switchStop();
+			}
+
+		}
+	}
+
+	/**
+	 * @param data
+	 */
+	private void ui(Object data) {
+		String userJson = JSONUtil.toJson(data);
+		List<Goods> goods = new Gson().fromJson(userJson,
+				new TypeToken<List<Goods>>() {
+				}.getType());
+
+		if (goods.size() >= 1) {
+			switchResult(goods);
+		} else {
+
+			switchStop();
+		}
+
+	}
+
+	/**
+	 * @param goods
+	 */
+	private void switchResult(List<Goods> goods) {
+		switch (pageNormal) {
+		case 0:
+			mAdapter = new GoodsAdapter(this, goods);
+			mListView.setAdapter(mAdapter);
+			break;
+		case 1:
+			mAdapter.clear();
+			mAdapter.addAll(goods);
+			mListView.setRefreshTime(DateUtil.getDateToString());
+			mListView.stopRefresh();
+			break;
+		case 2:
+			mAdapter.addAll(goods);
+			if (goods.size() == Config.PAGE_SIZE) {
+				mListView.stopLoadMore();
+			} else {
+				mListView.stopMyLoadMore();
+			}
+
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }

@@ -13,5 +13,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="list_min_heigh">48dp</dimen>
+    <dimen name="main_list_goods_title_font_size">16sp</dimen>
+    <dimen name="main_list_goods_desc_font_size">14sp</dimen>
 
 </resources>

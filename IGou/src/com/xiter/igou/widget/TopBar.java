@@ -126,11 +126,13 @@ public class TopBar extends RelativeLayout implements OnClickListener {
 		this.mRightBtn.setText(resId);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void setLeftButtonBackground(int resId) {
 		this.mLeftBtn.setBackgroundDrawable(mContext.getResources()
 				.getDrawable(resId));
 	}
 
+	@SuppressWarnings("deprecation")
 	public void setRightButtonBackground(int resId) {
 		this.mRightBtn.setBackgroundDrawable(mContext.getResources()
 				.getDrawable(resId));

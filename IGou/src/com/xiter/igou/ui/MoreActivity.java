@@ -1,5 +1,6 @@
 package com.xiter.igou.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,6 +9,7 @@ import android.widget.SimpleAdapter;
 
 import com.xiter.igou.R;
 import com.xiter.igou.ui.base.BaseActivity;
+import com.xiter.igou.ui.module.user.AccountActivity;
 import com.xiter.igou.util.DataUtil;
 import com.xiter.igou.util.ListViewUtil;
 import com.xiter.igou.widget.CornerListView;
@@ -73,9 +75,19 @@ public class MoreActivity extends BaseActivity {
 	class ListViewOnClick1 implements OnItemClickListener {
 
 		@Override
-		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+		public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 				long arg3) {
-			log(arg2 + "mListView1");
+			log(position + "mListView1");
+			switch (position) {
+			case 0:
+				Intent intent = new Intent(MoreActivity.this,
+						AccountActivity.class);
+				startActivity(intent);
+				break;
+
+			default:
+				break;
+			}
 
 		}
 

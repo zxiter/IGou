@@ -1,6 +1,5 @@
 package com.xiter.igou.model;
 
-
 /**
  * Description:商品实体
  * 
@@ -11,6 +10,10 @@ package com.xiter.igou.model;
  */
 public class Goods implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private String shopId;
 	private String code;

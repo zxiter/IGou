@@ -16,6 +16,11 @@ public class Config {
 	public final static String PRE_CLIENT = "";
 
 	public final static String PRE_USER = "user";
+
+	/**
+	 * 页面显示的条数
+	 */
+	public final static int PAGE_SIZE = 5;
 	/**
 	 * 请求的基本路径
 	 */
@@ -26,5 +31,6 @@ public class Config {
 	 */
 	public final static String LOGIN = "userController/login.do";
 
+	public static final String FIND_GOODS = "goodsController/findGoods.do";
 	public final static String FIND_MESSAGE = "base/tRdSPMessage!doMobile_MessageGrid.gx";
 }

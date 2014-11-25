@@ -3,141 +3,105 @@
  */
 package com.xiter.igou.ui.base;
 
-import java.util.Map;
-
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.xiter.igou.app.BaseApplication;
-import com.xiter.igou.task.BaseAsyncTask.AsyncTaskListener;
-import com.xiter.igou.task.DefaultAsyncTask;
+import com.xiter.igou.R;
+import com.xiter.igou.util.Config;
+import com.xiter.igou.widget.TopBar;
+import com.xiter.xlistview.XListView;
+import com.xiter.xlistview.XListView.IXListViewListener;
 
 /**
- * Description:TODO
+ * Description:listview基础工具activity,实现它来获得基本的方法使用
  * 
  * @author liufeihua
  * @date 2014-11-17上午11:58:54
  * @version 1.0
  * 
  */
-public class BaseListActivity extends Activity implements AsyncTaskListener {
+public class BaseListActivity extends BaseActivity implements
+		IXListViewListener {
 
-	/**
-	 * 请求的路径
-	 */
-	public String url;
-	/**
-	 * 请求的参数
-	 */
-	public Map<String, Object> params;
+	protected XListView mListView;
 
-	/**
-	 * 查询界面存在的id
-	 */
-	public void findById() {
+	protected int pageIndex = 1;// 起始页面
 
-	}
+	protected int pageNormal = 0;// 表示请求的方式0表示正常请求,1下拉请求,2加载更多请求（下拉）
 
-	/**
-	 * 初始化
-	 */
-	public void initView() {
-
-	}
-
-	/**
-	 * 日志
-	 * 
-	 * @param msg
-	 */
-	protected void log(String msg) {
-		Log.d(this.getClass().getName(), msg);
-	}
-
-	/**
-	 * 异步请求
-	 * 
-	 * @param task
-	 * @param map
-	 */
-	protected void defaultTask() {
-		new DefaultAsyncTask(this, params, url).startTask();
-	}
-
-	/**
-	 * 异步请求
-	 * 
-	 * @param task
-	 * @param map
-	 */
-	protected void defaultTask(AsyncTaskListener task, Map<String, Object> map) {
-		new DefaultAsyncTask(task, map, url).startTask();
-	}
-
-	/**
-	 * 异步请求
-	 * 
-	 * @param task
-	 * @param path
-	 * @param map
-	 */
-	protected void defaultTask(AsyncTaskListener task, String path,
-			Map<String, Object> map) {
-		new DefaultAsyncTask(task, map, path).startTask();
-	}
-
-	/**
-	 * 获取编辑框值
-	 * 
-	 * @param str
-	 * @return
-	 */
-	public String getText(EditText str) {
-		return str.getText().toString();
-	}
-
-	/**
-	 * 添加activity到自定义管理器中
-	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getAppContext().addActivity(this);
+	}
+
+	@Override
+	public void initView() {
+		initListView();
+		norMal();
+
+	}
+
+	public void initListView() {
+
+	}
+
+	@Override
+	public void findById() {
+		mListView = (XListView) findViewById(R.id.lv_goodslist);
+		mListView.setPullRefreshEnable(true);
+		mListView.setPullLoadEnable(true);
+		mListView.setXListViewListener(this);
+	}
+
+	@Override
+	public void initBar() {
+		mTopBar = (TopBar) findViewById(R.id.topbar);
+		mTopBar.showLeftButton(false);
+		mTopBar.showRightButton(false);
+	}
+
+	public void norMal() {
+		getParams(pageIndex, 0);
+		defaultTask();
 	}
 
 	/**
-	 * 销毁activity
+	 * 下拉操作
 	 */
 	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		getAppContext().finishActivity(this);
+	public void onRefresh() {
+		getParams(pageIndex = 1, 1);
+		defaultTask();
 	}
 
 	/**
-	 * 获取application
+	 * 下拉（加载更多）
 	 */
-	public BaseApplication getAppContext() {
-		return (BaseApplication) getApplication();
+	@Override
+	public void onLoadMore() {
+		getParams(++pageIndex, 2);
+		defaultTask();
 	}
 
-	/**
-	 * toast显示text字符串
-	 */
-	public void toast(String text) {
-		if (text == null) {
-			text = "";
+	public void getParams(int pageIndex, int pagenormal) {
+		pageNormal = pagenormal;
+		params.put("pageIndex", pageIndex);
+		params.put("pageSize", Config.PAGE_SIZE);
+	}
+
+	public void switchStop() {
+		switch (pageNormal) {
+
+		case 1:
+			mListView.stopRefresh();
+			// mListView.setPullRefreshEnable(false);
+			break;
+		case 2:
+			mListView.stopMyLoadMore();
+
+			// mListView.setPullLoadEnable(false);
+			break;
+
 		}
-		Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
-				.show();
-	}
-
-	@Override
-	public void taskResult(boolean status, String info, Object data) {
 
 	}
-
 }

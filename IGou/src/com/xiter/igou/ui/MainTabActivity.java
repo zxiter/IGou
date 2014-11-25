@@ -24,6 +24,7 @@ import com.xiter.igou.R;
  * @version 1.0
  * 
  */
+@SuppressWarnings("deprecation")
 public class MainTabActivity extends TabActivity implements OnClickListener {
 
 	private TabHost mTabHost;
@@ -108,7 +109,8 @@ public class MainTabActivity extends TabActivity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
-		Toast.makeText(this, "you click camera button ", 3000).show();
+		Toast.makeText(this, "you click camera button ", Toast.LENGTH_LONG)
+				.show();
 	}
 
 }
