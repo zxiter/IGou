@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.xiter.igou.R;
 import com.xiter.igou.model.Goods;
+import com.xiter.igou.util.ImageUtil;
 
 /**
  * Description:自定义商品适配器
@@ -55,6 +56,7 @@ public class GoodsAdapter extends DefaultAdapter<Goods> {
 		}
 
 		Goods g = getData(position);
+		ImageUtil.setImage(g.getThumbnail(), holder.img_photo);
 		holder.txt_title.setText(g.getName());
 		holder.txt_desc.setText(g.getDescribes());
 		return convertView;

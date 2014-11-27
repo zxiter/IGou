@@ -8,22 +8,23 @@ package com.xiter.xlistview;
 
 public final class R {
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f020011;
-		public static final int xiez = 0x7f02001e;
-		public static final int xlistview_arrow = 0x7f02001f;
+		public static final int ic_launcher = 0x7f020015;
+		public static final int xiez = 0x7f020031;
+		public static final int xlistview_arrow = 0x7f020032;
 	}
 	public static final class id {
-		public static final int imgv_goods_photo = 0x7f0a0011;
-		public static final int list_view = 0x7f0a000e;
-		public static final int xlistview_footer_content = 0x7f0a0017;
-		public static final int xlistview_footer_hint_textview = 0x7f0a0019;
-		public static final int xlistview_footer_progressbar = 0x7f0a0018;
-		public static final int xlistview_header_arrow = 0x7f0a001e;
-		public static final int xlistview_header_content = 0x7f0a001a;
-		public static final int xlistview_header_hint_textview = 0x7f0a001c;
-		public static final int xlistview_header_progressbar = 0x7f0a001f;
-		public static final int xlistview_header_text = 0x7f0a001b;
-		public static final int xlistview_header_time = 0x7f0a001d;
+		public static final int imgv_goods_photo = 0x7f0a001d;
+		public static final int list_view = 0x7f0a001a;
+		public static final int txt_goods_name = 0x7f0a0004;
+		public static final int xlistview_footer_content = 0x7f0a0023;
+		public static final int xlistview_footer_hint_textview = 0x7f0a0025;
+		public static final int xlistview_footer_progressbar = 0x7f0a0024;
+		public static final int xlistview_header_arrow = 0x7f0a002a;
+		public static final int xlistview_header_content = 0x7f0a0026;
+		public static final int xlistview_header_hint_textview = 0x7f0a0028;
+		public static final int xlistview_header_progressbar = 0x7f0a002b;
+		public static final int xlistview_header_text = 0x7f0a0027;
+		public static final int xlistview_header_time = 0x7f0a0029;
 	}
 	public static final class layout {
 		public static final int main = 0x7f030009;

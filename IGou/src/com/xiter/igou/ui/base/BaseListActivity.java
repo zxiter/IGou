@@ -4,6 +4,9 @@
 package com.xiter.igou.ui.base;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.xiter.igou.R;
 import com.xiter.igou.util.Config;
@@ -20,7 +23,7 @@ import com.xiter.xlistview.XListView.IXListViewListener;
  * 
  */
 public class BaseListActivity extends BaseActivity implements
-		IXListViewListener {
+		IXListViewListener, OnItemClickListener {
 
 	protected XListView mListView;
 
@@ -50,6 +53,7 @@ public class BaseListActivity extends BaseActivity implements
 		mListView.setPullRefreshEnable(true);
 		mListView.setPullLoadEnable(true);
 		mListView.setXListViewListener(this);
+		mListView.setOnItemClickListener(this);
 	}
 
 	@Override
@@ -102,6 +106,11 @@ public class BaseListActivity extends BaseActivity implements
 			break;
 
 		}
+
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 
 	}
 }

@@ -16,6 +16,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 
 import com.xiter.igou.http.BaseHttpClient;
 import com.xiter.igou.util.Config;
+import com.xiter.igou.util.ImageUtil;
 
 /**
  * Descriptionan：自管理Activity,获取版本号,初始化httpclient,SharedPreferences
@@ -118,6 +119,8 @@ public class BaseApplication extends Application {
 		// new DBManager(this);
 		// 初始化HttpClient,调用静态方法
 		BaseHttpClient.initHttpClient();
+		// 初始化图片处理
+		ImageUtil.getImageLoader().init(ImageUtil.initConfig(getInstance()));
 
 	}
 

@@ -6,8 +6,9 @@
 
     <ImageView
         android:id="@+id/img_alpha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
         android:src="@drawable/alpha" />
 
 </LinearLayout>

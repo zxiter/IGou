@@ -15,5 +15,6 @@
     <dimen name="list_min_heigh">48dp</dimen>
     <dimen name="main_list_goods_title_font_size">16sp</dimen>
     <dimen name="main_list_goods_desc_font_size">14sp</dimen>
+    <dimen name="goods_info_shop_name_font_size">12sp</dimen>
 
 </resources>

@@ -24,7 +24,9 @@ public class Config {
 	/**
 	 * 请求的基本路径
 	 */
-	public final static String STRURL = "http://192.168.2.116:8080/igouserv/";
+	// public final static String STRURL =
+	// "http://192.168.2.116:8080/igouserv/";
+	public final static String STRURL = "http://42.96.204.191:8080/igouserv/";
 
 	/**
 	 * 登录接口

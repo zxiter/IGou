@@ -2,13 +2,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -25,6 +25,11 @@
     <style name="main_list_goods_desc_font">
         <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:textSize">@dimen/main_list_goods_desc_font_size</item>
+    </style>
+
+    <style name="goods_info_shop_name_font">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">@dimen/goods_info_shop_name_font_size</item>
     </style>
 
 </resources>

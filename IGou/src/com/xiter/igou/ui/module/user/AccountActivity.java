@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -16,7 +15,7 @@ import com.google.gson.reflect.TypeToken;
 import com.xiter.igou.R;
 import com.xiter.igou.model.User;
 import com.xiter.igou.ui.LoginActivity;
-import com.xiter.igou.ui.base.BaseActivity;
+import com.xiter.igou.ui.base.DefaultActivity;
 import com.xiter.igou.util.Config;
 import com.xiter.igou.util.JSONUtil;
 import com.xiter.igou.widget.TopBar;
@@ -29,7 +28,7 @@ import com.xiter.igou.widget.TopBar;
  * @version 1.0
  * 
  */
-public class AccountActivity extends BaseActivity implements OnClickListener {
+public class AccountActivity extends DefaultActivity {
 
 	private ListView mListView;
 	private List<HashMap<String, Object>> datas = new ArrayList<HashMap<String, Object>>();

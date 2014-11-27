@@ -8,14 +8,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.xiter.igou.R;
 import com.xiter.igou.model.User;
-import com.xiter.igou.ui.base.BaseActivity;
+import com.xiter.igou.ui.base.DefaultActivity;
 import com.xiter.igou.util.Config;
 import com.xiter.igou.util.JSONUtil;
 import com.xiter.igou.util.MD5Util;
@@ -29,7 +28,7 @@ import com.xiter.igou.widget.TopBar;
  * @version 1.0
  * 
  */
-public class LoginActivity extends BaseActivity implements OnClickListener {
+public class LoginActivity extends DefaultActivity {
 
 	// 用户名
 	private EditText mEtxtUserName;

@@ -2,7 +2,10 @@ package com.xiter.igou.ui;
 
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -11,6 +14,7 @@ import com.xiter.igou.adapter.DefaultAdapter;
 import com.xiter.igou.adapter.GoodsAdapter;
 import com.xiter.igou.model.Goods;
 import com.xiter.igou.ui.base.BaseListActivity;
+import com.xiter.igou.ui.module.good.GoodDetailActivity;
 import com.xiter.igou.util.Config;
 import com.xiter.igou.util.DateUtil;
 import com.xiter.igou.util.JSONUtil;
@@ -105,6 +109,20 @@ public class HomeActivity extends BaseListActivity {
 		default:
 			break;
 		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		Goods goods = (Goods) parent.getAdapter().getItem(position);
+
+		Intent intent = new Intent(this, GoodDetailActivity.class);
+
+		Bundle bundle = new Bundle();
+		bundle.putSerializable("goods", goods);
+		intent.putExtras(bundle);
+
+		startActivity(intent);
 	}
 
 }

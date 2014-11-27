@@ -3,6 +3,9 @@
  */
 package com.xiter.igou.ui.base;
 
+import android.view.View;
+import android.view.View.OnClickListener;
+
 /**
  * Description:统一风格
  * 
@@ -11,6 +14,12 @@ package com.xiter.igou.ui.base;
  * @version 1.0
  * 
  */
-public class DefaultActivity extends BaseActivity {
+public class DefaultActivity extends BaseActivity implements OnClickListener {
+
+	@Override
+	public void onClick(View arg0) {
+		// TODO Auto-generated method stub
+
+	}
 
 }
